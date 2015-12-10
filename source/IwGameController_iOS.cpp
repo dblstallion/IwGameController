@@ -205,12 +205,11 @@ namespace IwGameController
         case Axis::STICK_LEFT_X:
             return s3eIOSControllerGetAxisValue((s3eIOSController*)handle, S3E_IOSCONTROLLER_AXIS_LEFT_THUMBSTICK_X);
         case Axis::STICK_LEFT_Y:
-            //Not sure if we need to flip these too - dont have a pad to test with atm!
-            return s3eIOSControllerGetAxisValue((s3eIOSController*)handle, S3E_IOSCONTROLLER_AXIS_LEFT_THUMBSTICK_Y);
+            return -s3eIOSControllerGetAxisValue((s3eIOSController*)handle, S3E_IOSCONTROLLER_AXIS_LEFT_THUMBSTICK_Y);
         case Axis::STICK_RIGHT_X:
             return s3eIOSControllerGetAxisValue((s3eIOSController*)handle, S3E_IOSCONTROLLER_AXIS_RIGHT_THUMBSTICK_X);
         case Axis::STICK_RIGHT_Y:
-            return s3eIOSControllerGetAxisValue((s3eIOSController*)handle, S3E_IOSCONTROLLER_AXIS_RIGHT_THUMBSTICK_Y);
+            return -s3eIOSControllerGetAxisValue((s3eIOSController*)handle, S3E_IOSCONTROLLER_AXIS_RIGHT_THUMBSTICK_Y);
         case Axis::TRIGGER_LEFT:
             return s3eIOSControllerGetAxisValue((s3eIOSController*)handle, S3E_IOSCONTROLLER_AXIS_LEFT_TRIGGER);
         case Axis::TRIGGER_RIGHT:
