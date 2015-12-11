@@ -128,6 +128,10 @@ namespace IwGameController
                 return s3eAndroidControllerGetButtonState(S3E_ANDROID_CONTROLLER_BUTTON_X);
             case Button::Y:
                 return s3eAndroidControllerGetButtonState(S3E_ANDROID_CONTROLLER_BUTTON_Y);
+            case Button::START:
+                return s3eAndroidControllerGetButtonState(S3E_ANDROID_CONTROLLER_BUTTON_START);
+            case Button::SELECT:
+                return s3eAndroidControllerGetButtonState(S3E_ANDROID_CONTROLLER_BUTTON_SELECT);
             default:
                 return false;
         }
@@ -142,13 +146,15 @@ namespace IwGameController
                     return -1.0;
                 if (s3eAndroidControllerGetButtonState(S3E_ANDROID_CONTROLLER_BUTTON_DPAD_RIGHT))
                     return 1.0;
-                break;
+
+                return s3eAndroidControllerGetAxisValue(S3E_ANDROID_CONTROLLER_AXIS_HAT_X);
             case Axis::DPAD_Y:
                 if (s3eAndroidControllerGetButtonState(S3E_ANDROID_CONTROLLER_BUTTON_DPAD_DOWN))
                     return 1.0;
                 if (s3eAndroidControllerGetButtonState(S3E_ANDROID_CONTROLLER_BUTTON_DPAD_UP))
                     return -1.0;
-                break;
+
+                return s3eAndroidControllerGetAxisValue(S3E_ANDROID_CONTROLLER_AXIS_HAT_Y);
             case Axis::STICK_LEFT_X:
                 return s3eAndroidControllerGetAxisValue(S3E_ANDROID_CONTROLLER_AXIS_STICK_LEFT_X);
             case Axis::STICK_LEFT_Y:
@@ -187,6 +193,8 @@ namespace IwGameController
             case Button::TRIGGER_RIGHT:
             case Button::X:
             case Button::Y:
+            case Button::SELECT:
+            case Button::START:
                 return true;
         }
 
